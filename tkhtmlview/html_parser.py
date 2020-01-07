@@ -10,11 +10,8 @@ from PIL import Image, ImageTk
 from html.parser import HTMLParser
 from collections import OrderedDict
 import requests
-import requests_cache
 from io import BytesIO
-requests_cache.install_cache('img', backend='sqlite')
-requests_cache.clear()
-reqcache = requests_cache.CachedSession()
+
 #__________________________________________________________________________________________________
 class Defs():
     DEFAULT_TEXT_FONT_FAMILY = ("Segoe ui", "Calibri", "Helvetica", "TkTextFont")
