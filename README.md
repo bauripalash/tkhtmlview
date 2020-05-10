@@ -1,4 +1,6 @@
 # tkhtmlview
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbauripalash%2Ftkhtmlview.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbauripalash%2Ftkhtmlview?ref=badge_shield)
+
 HTML widgets for tkinter
 
 > Fork of [tk_html_widgets](https://github.com/paolo-gurisatti/tk_html_widgets)
@@ -81,3 +83,7 @@ u| style |
 ul| style | bullet glyphs only
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbauripalash%2Ftkhtmlview.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbauripalash%2Ftkhtmlview?ref=badge_large)
