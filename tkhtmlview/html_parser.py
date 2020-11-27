@@ -492,7 +492,7 @@ class HTMLTextParser(HTMLParser):
         elif tag == HTML.Tag.IMG and attrs[HTML.Attrs.SRC]:
             #-------------------------------------------------------------------- [ UNSTYLED_TAGS ]
             image = None
-            print(attrs[HTML.Attrs.SRC] , self.cached_images)
+            #print(attrs[HTML.Attrs.SRC] , self.cached_images)
             if attrs[HTML.Attrs.SRC].startswith(("https://" , "ftp://" , "http://")):
                 if attrs[HTML.Attrs.SRC] in self.cached_images.keys():
                     image = deepcopy(self.cached_images[attrs[HTML.Attrs.SRC]])
