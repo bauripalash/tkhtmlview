@@ -72,7 +72,7 @@ class HTML:
 
     class Style():
         COLOR = 'color'
-        BACKGROUD_COLOR = 'background-color'
+        BACKGROUND_COLOR = 'background-color'
         FONT_FAMILY = 'font-family'
         FONT_SIZE = 'font-size'
         TEXT_ALIGN = 'text-align'
