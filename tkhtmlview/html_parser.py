@@ -355,9 +355,9 @@ class HTMLTextParser(HTMLParser):
         else:
             self._stack_add(tag, WCfg.FOREGROUND)
 
-        #---------------------------------------------------------------------- [ BACKGROUD_COLOR ]
-        if HTML.Style.BACKGROUD_COLOR in attrs[HTML.Attrs.STYLE].keys():
-            self._stack_add(tag, WCfg.BACKGROUND, attrs[HTML.Attrs.STYLE][HTML.Style.BACKGROUD_COLOR])
+        #---------------------------------------------------------------------- [ BACKGROUND_COLOR ]
+        if HTML.Style.BACKGROUND_COLOR in attrs[HTML.Attrs.STYLE].keys():
+            self._stack_add(tag, WCfg.BACKGROUND, attrs[HTML.Attrs.STYLE][HTML.Style.BACKGROUND_COLOR])
         elif tag == HTML.Tag.MARK:
             self._stack_add(tag, WCfg.BACKGROUND, "yellow")
         else:
