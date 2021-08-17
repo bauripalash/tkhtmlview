@@ -7,7 +7,6 @@ from tkinter import scrolledtext
 from tkinter import font
 from tkhtmlview import html_parser
 
-VERSION = "0.1.0.post1"
 
 class _ScrolledText(tk.Text):
     #----------------------------------------------------------------------------------------------

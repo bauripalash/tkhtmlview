@@ -1,12 +1,12 @@
 import setuptools
-import tkhtmlview
+from version import VERSION
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="tkhtmlview",
-    version=tkhtmlview.VERSION,
+    version=VERSION,
     author="Palash Bauri",
     author_email="hey@palashbauri.in",
     description="View Simple HTML docs on tkinter",
