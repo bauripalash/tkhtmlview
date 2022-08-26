@@ -8,7 +8,7 @@ setuptools.setup(
     name="tkhtmlview",
     version=VERSION,
     author="Palash Bauri",
-    keywords='tkinter html developement webview'
+    keywords='tkinter html developement webview',
     description="View Simple HTML docs on tkinter",
     long_description=long_description,
     long_description_content_type="text/markdown",
