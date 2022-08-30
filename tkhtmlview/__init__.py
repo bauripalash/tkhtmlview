@@ -15,7 +15,7 @@ class _ScrolledText(tk.Text):
         self.frame = tk.Frame(master)
 
         self.vbar = tk.Scrollbar(self.frame)
-        kw.update({'yscrollcommand': self.vbar.set})
+        kw['yscrollcommand'] = self.vbar.set
         self.vbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.vbar['command'] = self.yview
 
@@ -51,9 +51,9 @@ class HTMLScrolledText(_ScrolledText):
             self.set_html(html.get_html())
 
     def _w_init(self, kwargs):
-        if not 'wrap' in kwargs.keys():
+        if 'wrap' not in kwargs.keys():
             self.config(wrap='word')
-        if not 'background' in kwargs.keys():
+        if 'background' not in kwargs.keys():
             if sys.platform.startswith('win'):
                 self.config(background='SystemWindow')
             else:
@@ -108,16 +108,16 @@ class HTMLLabel(HTMLText):
 
     def _w_init(self, kwargs):
         super()._w_init(kwargs)
-        if not 'background' in kwargs.keys():
+        if 'background' not in kwargs.keys():
             if sys.platform.startswith('win'):
                 self.config(background='SystemButtonFace')
             else:
                 self.config(background='#d9d9d9')
 
-        if not 'borderwidth' in kwargs.keys():
+        if 'borderwidth' not in kwargs.keys():
             self.config(borderwidth=0)
 
-        if not 'padx' in kwargs.keys():
+        if 'padx' not in kwargs.keys():
             self.config(padx=3)
 
     def set_html(self, *args, **kwargs):
