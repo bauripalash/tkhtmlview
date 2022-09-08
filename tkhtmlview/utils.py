@@ -12,7 +12,7 @@ class RenderHTML:
             self._html = f.read()
     
     def __repr__(self):
-        return "<%s: %s>" % (self.__class__.__name__, self._file)
+        return f"<{self.__class__.__name__}: {self._file}>"
 
     def get_html(self):
         return str(self._html)
