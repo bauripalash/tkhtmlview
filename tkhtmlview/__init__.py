@@ -78,7 +78,9 @@ class HTMLScrolledText(_ScrolledText):
         prev_state = self.cget('state')
         self.config(state=tk.NORMAL)
         self.delete('1.0', tk.END)
-        self.tag_delete(self.tag_names)
+        for tag in self.tag_names():
+            self.tag_delete(tag)
+        
         self.html_parser.w_set_html(self, html, strip=strip)
         self.config(state=prev_state)
 
