@@ -1,6 +1,6 @@
 # tkhtmlview
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbauripalash%2Ftkhtmlview.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbauripalash%2Ftkhtmlview?ref=badge_shield)
+![PyPI](https://img.shields.io/pypi/v/tkhtmlview?logo=python&style=flat-square)
 
 HTML widgets for tkinter
 
