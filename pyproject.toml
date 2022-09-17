@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "tkhtmlview"
-version = "0.1.1"
+version = "0.1.1.post3"
 description = "Display HTML with Tkinter"
 authors = ["Palash Bauri <palashbauri1@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.4"
+python = "^3.7"
 requests = "^2.28.1"
 Pillow = "^9.2.0"
 
