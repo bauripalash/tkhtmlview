@@ -16,7 +16,7 @@ setuptools.setup(
 
     project_urls={
         'Documentation': 'https://github.com/bauripalash/tkhtmlview',
-        'Funding': 'https://github.com/bauripalash',
+        'Funding': 'https://github.com/sponsors/bauripalash',
         'Source': 'https://github.com/bauripalash/tkhtmlview',
         'Tracker': 'https://github.com/bauripalash/tkhtmlview/issues',
     },
