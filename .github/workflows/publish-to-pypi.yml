@@ -16,7 +16,7 @@ jobs:
     - name: Install Pypa/build-n-publish
       run: >-
         python -m 
-        pip Install
+        pip install
         build 
         --user
     
