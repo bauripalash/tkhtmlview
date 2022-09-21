@@ -1,6 +1,7 @@
 # tkhtmlview
 
 ![PyPI](https://img.shields.io/pypi/v/tkhtmlview?logo=python&style=flat-square)
+[![Publish to Pypi](https://github.com/bauripalash/tkhtmlview/actions/workflows/publish-to-pypi.yml/badge.svg)](https://github.com/bauripalash/tkhtmlview/actions/workflows/publish-to-pypi.yml)
 
 HTML widgets for tkinter
 
