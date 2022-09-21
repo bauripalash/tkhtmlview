@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tkhtmlview"
-version = "0.1.1.post3"
+version = "0.1.1.post4"
 description = "Display HTML with Tkinter"
 authors = ["Palash Bauri <palashbauri1@gmail.com>"]
 license = "MIT"
