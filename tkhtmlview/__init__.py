@@ -6,7 +6,7 @@ import tkinter as tk
 from tkhtmlview import html_parser
 from tkhtmlview.utils import RenderHTML
 
-VERSION = "0.1.1.post4"
+VERSION = "0.1.1.post5"
 
 class _ScrolledText(tk.Text):
 
@@ -14,6 +14,16 @@ class _ScrolledText(tk.Text):
         self.frame = tk.Frame(master)
 
         self.vbar = tk.Scrollbar(self.frame)
+        self.xscroll = tk.Scrollbar(self.frame , orient = "horizontal")
+
+        if "xscroll" in kw.keys():
+            #self.vbar.orient = "vertical"
+            #print("vs")
+            kw["xscrollcommand"] = self.xscroll.set
+            self.xscroll.pack(side=tk.BOTTOM , fill="x")
+            self.xscroll["command"] = self.xview
+            del kw["xscroll"]
+
         kw['yscrollcommand'] = self.vbar.set
         self.vbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.vbar['command'] = self.yview
