@@ -304,8 +304,8 @@ class HTMLTextParser(HTMLParser):
         elif key in Bind.__dict__.values():
             main_key = Bind.KEY
         else:
-            raise ValueError("key %s doesn't exists" % key)
-        
+            raise ValueError(f"key {key} doesn't exists")
+
         return main_key
 
 
