@@ -465,7 +465,7 @@ class HTMLTextParser(HTMLParser):
                 self._stack_add(tag, WCfg.TABS, tabs)
 
             elif tag == HTML.Tag.LI:
-                if level := len(self.list_tags):
+                if level != len(self.list_tags):
                     self.list_tags[-1].add()
 
                     if self.strip:
