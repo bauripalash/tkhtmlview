@@ -8,36 +8,35 @@ from tkhtmlview.utils import RenderHTML
 
 VERSION = "0.1.1.post5"
 
-class _ScrolledText(tk.Text):
 
+class _ScrolledText(tk.Text):
     def __init__(self, master=None, **kw):
         self.frame = tk.Frame(master)
 
         self.vbar = tk.Scrollbar(self.frame)
-        self.xscroll = tk.Scrollbar(self.frame , orient = "horizontal")
+        self.xscroll = tk.Scrollbar(self.frame, orient="horizontal")
 
         if "xscroll" in kw.keys():
-            #self.vbar.orient = "vertical"
-            #print("vs")
+            # self.vbar.orient = "vertical"
+            # print("vs")
             kw["xscrollcommand"] = self.xscroll.set
-            self.xscroll.pack(side=tk.BOTTOM , fill="x")
+            self.xscroll.pack(side=tk.BOTTOM, fill="x")
             self.xscroll["command"] = self.xview
             del kw["xscroll"]
 
-        kw['yscrollcommand'] = self.vbar.set
+        kw["yscrollcommand"] = self.vbar.set
         self.vbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.vbar['command'] = self.yview
+        self.vbar["command"] = self.yview
 
         tk.Text.__init__(self, self.frame, **kw)
         self.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
         text_meths = vars(tk.Text).keys()
-        methods = vars(tk.Pack).keys() | vars(
-            tk.Grid).keys() | vars(tk.Place).keys()
+        methods = vars(tk.Pack).keys() | vars(tk.Grid).keys() | vars(tk.Place).keys()
         methods = methods.difference(text_meths)
 
         for m in methods:
-            if m[0] != '_' and m != 'config' and m != 'configure':
+            if m[0] != "_" and m != "config" and m != "configure":
                 setattr(self, m, getattr(self.frame, m))
 
     def __str__(self):
@@ -60,13 +59,13 @@ class HTMLScrolledText(_ScrolledText):
             self.set_html(html.get_html())
 
     def _w_init(self, kwargs):
-        if 'wrap' not in kwargs.keys():
-            self.config(wrap='word')
-        if 'background' not in kwargs.keys():
-            if sys.platform.startswith('win'):
-                self.config(background='SystemWindow')
+        if "wrap" not in kwargs.keys():
+            self.config(wrap="word")
+        if "background" not in kwargs.keys():
+            if sys.platform.startswith("win"):
+                self.config(background="SystemWindow")
             else:
-                self.config(background='white')
+                self.config(background="white")
 
     def fit_height(self):
         """
@@ -78,19 +77,19 @@ class HTMLScrolledText(_ScrolledText):
             if self.yview()[1] >= 1:
                 break
         else:
-            self.config(height=0.5+3/self.yview()[1])
+            self.config(height=0.5 + 3 / self.yview()[1])
 
     def set_html(self, html, strip=True):
         """
         Set HTML widget text. If strip is enabled (default) it ignores spaces and new lines.
 
         """
-        prev_state = self.cget('state')
+        prev_state = self.cget("state")
         self.config(state=tk.NORMAL)
-        self.delete('1.0', tk.END)
+        self.delete("1.0", tk.END)
         for tag in self.tag_names():
             self.tag_delete(tag)
-        
+
         self.html_parser.w_set_html(self, html, strip=strip)
         self.config(state=prev_state)
 
@@ -119,16 +118,16 @@ class HTMLLabel(HTMLText):
 
     def _w_init(self, kwargs):
         super()._w_init(kwargs)
-        if 'background' not in kwargs.keys():
-            if sys.platform.startswith('win'):
-                self.config(background='SystemButtonFace')
+        if "background" not in kwargs.keys():
+            if sys.platform.startswith("win"):
+                self.config(background="SystemButtonFace")
             else:
-                self.config(background='#d9d9d9')
+                self.config(background="#d9d9d9")
 
-        if 'borderwidth' not in kwargs.keys():
+        if "borderwidth" not in kwargs.keys():
             self.config(borderwidth=0)
 
-        if 'padx' not in kwargs.keys():
+        if "padx" not in kwargs.keys():
             self.config(padx=3)
 
     def set_html(self, *args, **kwargs):

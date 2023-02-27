@@ -1,4 +1,3 @@
-
 import os
 
 
@@ -8,13 +7,13 @@ class RenderHTML:
         if not os.path.exists(self._file):
             raise FileNotFoundError(f"No such HTML file: {self._file}")
 
-        with open(file, 'r') as f:
+        with open(file, "r") as f:
             self._html = f.read()
-    
+
     def __repr__(self):
         return f"<{self.__class__.__name__}: {self._file}>"
 
     def get_html(self):
         return str(self._html)
-    __str__ = get_html
 
+    __str__ = get_html
