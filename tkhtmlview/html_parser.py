@@ -312,7 +312,7 @@ class HTMLTextParser(HTMLParser):
         elif key in Bind.__dict__.values():
             main_key = Bind.KEY
         else:
-            raise ValueError("key %s doesn't exists" % key)
+            raise ValueError(f"key {key} doesn't exists")
 
         return main_key
 
@@ -494,8 +494,7 @@ class HTMLTextParser(HTMLParser):
                 self._stack_add(tag, WCfg.TABS, tabs)
 
             elif tag == HTML.Tag.LI:
-                level = len(self.list_tags)
-                if level:
+                if level := len(self.list_tags):
                     self.list_tags[-1].add()
 
                     if self.strip:
