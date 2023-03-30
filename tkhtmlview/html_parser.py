@@ -58,6 +58,10 @@ class HTML:
         H4 = "h4"
         H5 = "h5"
         H6 = "h6"
+        TABLE = "table"
+        TR = "tr"
+        TH = "th"
+        TD = "td"
 
     class Attrs:
         STYLE = "style"
@@ -101,6 +105,8 @@ class HTML:
         Tag.P,
         Tag.PRE,
         Tag.CODE,
+        Tag.TD,
+        Tag.TH,
     )
 
     NEW_LINE_TAGS = HEADING_TAGS + (
@@ -110,6 +116,8 @@ class HTML:
         Tag.P,
         Tag.PRE,
         Tag.CODE,
+        Tag.TABLE,
+        Tag.TR,
     )
 
     STYLE_TAGS = TEXT_ALIGN_TAGS + (
@@ -121,6 +129,8 @@ class HTML:
         Tag.U,
         Tag.MARK,
         Tag.SPAN,
+        Tag.TD,
+        Tag.TH,
     )
 
 
@@ -513,6 +523,9 @@ class HTMLTextParser(HTMLParser):
                     self._w.insert(tk.INSERT, line_index)
                     self._stack_pop(tag, Fnt.UNDERLINE)
                     self._stack_pop(tag, Fnt.OVERSTRIKE)
+                    
+            elif tag == HTML.Tag.TD or tag == HTML.Tag.TD:
+                    self._w.insert(tk.INSERT, "\t")
 
         elif tag == HTML.Tag.IMG and attrs[HTML.Attrs.SRC]:
             # -------------------------------------------------------------------- [ UNSTYLED_TAGS ]
@@ -549,7 +562,14 @@ class HTMLTextParser(HTMLParser):
                     image = image.resize((width, height), Image.ANTIALIAS)
                 self.images.append(ImageTk.PhotoImage(image))
                 self._w.image_create(tk.INSERT, image=self.images[-1])
-
+                
+        elif tag == HTML.Tag.TABLE:
+                tabs = []
+                for i in range(30): # HF was len(self.list_tags)):
+                    offset = 40 * (i + 1)
+                    tabs += [offset, tk.LEFT ]
+                self._stack_add(tag, WCfg.TABS, tabs)
+            
         if self.strip:
             if tag == HTML.Tag.BR:
                 self._insert_new_line()
