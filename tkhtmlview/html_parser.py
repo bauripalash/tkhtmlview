@@ -312,7 +312,7 @@ class HTMLTextParser(HTMLParser):
         elif key in Bind.__dict__.values():
             main_key = Bind.KEY
         else:
-            raise ValueError("key %s doesn't exists" % key)
+            raise ValueError(f"key {key} doesn't exists")
 
         return main_key
 
@@ -494,8 +494,7 @@ class HTMLTextParser(HTMLParser):
                 self._stack_add(tag, WCfg.TABS, tabs)
 
             elif tag == HTML.Tag.LI:
-                level = len(self.list_tags)
-                if level:
+                if level := len(self.list_tags):
                     self.list_tags[-1].add()
 
                     if self.strip:
@@ -696,9 +695,8 @@ class HTMLTextParser(HTMLParser):
         # add tags
         self.hlink_slots = []
         for key, tag in self._w_tags.items():
-            if "config" in tag: # HF change justify to left for tkinter (only supports left, right, center)
-                if tag["config"].get("justify") == "justify":
-                    tag["config"]["justify"] = "left"
+            if "config" in tag and tag["config"].get("justify") == "justify":
+                tag["config"]["justify"] = "left"
             self._w.tag_add(key, tag[WTag.START_INDEX], tag[WTag.END_INDEX])
             self._w.tag_config(key, font=font.Font(**tag[Fnt.KEY]), **tag[WCfg.KEY])
             if tag[Bind.KEY][Bind.LINK]:
