@@ -137,6 +137,9 @@ Where is possibile, I hope to add more HTML support in the next releases.
 | u        | style              |
 | ul       | style              | bullet glyphs only                     |
 
+> Note: All styles are not supported; 
+> align with justify is not supported; it falls back to left align
+
 ## License
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbauripalash%2Ftkhtmlview.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbauripalash%2Ftkhtmlview?ref=badge_large)
