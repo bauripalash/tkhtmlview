@@ -524,7 +524,7 @@ class HTMLTextParser(HTMLParser):
                     self._stack_pop(tag, Fnt.UNDERLINE)
                     self._stack_pop(tag, Fnt.OVERSTRIKE)
                     
-            elif tag == HTML.Tag.TD or tag == HTML.Tag.TD:
+            elif tag == HTML.Tag.TH or tag == HTML.Tag.TD:
                     self._w.insert(tk.INSERT, "\t")
 
         elif tag == HTML.Tag.IMG and attrs[HTML.Attrs.SRC]:
