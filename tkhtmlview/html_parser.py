@@ -696,6 +696,9 @@ class HTMLTextParser(HTMLParser):
         # add tags
         self.hlink_slots = []
         for key, tag in self._w_tags.items():
+            if "config" in tag: # HF change justify to left for tkinter (only supports left, right, center)
+                if tag["config"].get("justify") == "justify":
+                    tag["config"]["justify"] = "left"
             self._w.tag_add(key, tag[WTag.START_INDEX], tag[WTag.END_INDEX])
             self._w.tag_config(key, font=font.Font(**tag[Fnt.KEY]), **tag[WCfg.KEY])
             if tag[Bind.KEY][Bind.LINK]:
