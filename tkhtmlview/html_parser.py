@@ -322,7 +322,7 @@ class HTMLTextParser(HTMLParser):
         elif key in Bind.__dict__.values():
             main_key = Bind.KEY
         else:
-            raise ValueError("key %s doesn't exists" % key)
+            raise ValueError(f"key {key} doesn't exists")
 
         return main_key
 
@@ -504,8 +504,7 @@ class HTMLTextParser(HTMLParser):
                 self._stack_add(tag, WCfg.TABS, tabs)
 
             elif tag == HTML.Tag.LI:
-                level = len(self.list_tags)
-                if level:
+                if level := len(self.list_tags):
                     self.list_tags[-1].add()
 
                     if self.strip:
@@ -523,9 +522,9 @@ class HTMLTextParser(HTMLParser):
                     self._w.insert(tk.INSERT, line_index)
                     self._stack_pop(tag, Fnt.UNDERLINE)
                     self._stack_pop(tag, Fnt.OVERSTRIKE)
-                    
-            elif tag == HTML.Tag.TH or tag == HTML.Tag.TD:
-                    self._w.insert(tk.INSERT, "\t")
+
+            elif tag in [HTML.Tag.TH, HTML.Tag.TD]:
+                self._w.insert(tk.INSERT, "\t")
 
         elif tag == HTML.Tag.IMG and attrs[HTML.Attrs.SRC]:
             # -------------------------------------------------------------------- [ UNSTYLED_TAGS ]
@@ -562,14 +561,14 @@ class HTMLTextParser(HTMLParser):
                     image = image.resize((width, height), Image.ANTIALIAS)
                 self.images.append(ImageTk.PhotoImage(image))
                 self._w.image_create(tk.INSERT, image=self.images[-1])
-                
+
         elif tag == HTML.Tag.TABLE:
                 tabs = []
                 for i in range(30): # HF was len(self.list_tags)):
                     offset = 40 * (i + 1)
                     tabs += [offset, tk.LEFT ]
                 self._stack_add(tag, WCfg.TABS, tabs)
-            
+
         if self.strip:
             if tag == HTML.Tag.BR:
                 self._insert_new_line()
