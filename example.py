@@ -1,8 +1,9 @@
 import tkinter as tk
-from tkhtmlview import HTMLLabel
+from tkhtmlview import HTMLScrolledText
 
 root = tk.Tk()
-html_label = HTMLLabel(
+root.geometry("780x640")
+html_label = HTMLScrolledText(
     root,
     html="""
                        <h1 style="color: red; text-align: center"> Hello World </h1>
@@ -26,6 +27,23 @@ html_label = HTMLLabel(
 
                        <h3> Paragraph </h3>
                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut quam sapien. Maecenas porta tempus mauris sed ullamcorper. Nulla facilisi. Nulla facilisi. Mauris tristique ipsum et efficitur lobortis. Sed pharetra ipsum non lacinia dignissim. Ut condimentum vulputate sem eget scelerisque. Curabitur ornare augue enim, sed volutpat enim finibus id. </p>
+
+<h3>Table</h3
+<table>
+    <tr>
+      <th>T Header 1</th>
+      <th>T Header 2</th>
+    </tr>
+    <tr>
+      <td>ABC</td>
+      <td>123</td>
+    </tr>
+    <tr>
+      <td>DEF</td>
+      <td>456</td>
+    </tr>
+
+</table>
                        """,
 )
 html_label.pack(fill="both", expand=True)
