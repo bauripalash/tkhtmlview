@@ -6,7 +6,7 @@ import tkinter as tk
 from tkhtmlview import html_parser
 from tkhtmlview.utils import RenderHTML
 
-VERSION = "0.1.4"
+VERSION = "0.2.0"
 
 
 class _ScrolledText(tk.Text):
