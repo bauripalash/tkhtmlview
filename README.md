@@ -136,6 +136,7 @@ Where is possibile, I hope to add more HTML support in the next releases.
 | strong   | style              |
 | u        | style              |
 | ul       | style              | bullet glyphs only                     |
+| table,tr,th,td | - | basic support|
 
 > Note: All styles are not supported; 
 > align with justify is not supported; it falls back to left align
