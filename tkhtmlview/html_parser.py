@@ -523,7 +523,7 @@ class HTMLTextParser(HTMLParser):
                     self._w.insert(tk.INSERT, line_index)
                     self._stack_pop(tag, Fnt.UNDERLINE)
                     self._stack_pop(tag, Fnt.OVERSTRIKE)
-                    
+
             elif tag == HTML.Tag.TH or tag == HTML.Tag.TD:
                     self._w.insert(tk.INSERT, "\t")
 
@@ -562,14 +562,14 @@ class HTMLTextParser(HTMLParser):
                     image = image.resize((width, height), Image.ANTIALIAS)
                 self.images.append(ImageTk.PhotoImage(image))
                 self._w.image_create(tk.INSERT, image=self.images[-1])
-                
+
         elif tag == HTML.Tag.TABLE:
                 tabs = []
                 for i in range(30): # HF was len(self.list_tags)):
                     offset = 40 * (i + 1)
                     tabs += [offset, tk.LEFT ]
                 self._stack_add(tag, WCfg.TABS, tabs)
-            
+
         if self.strip:
             if tag == HTML.Tag.BR:
                 self._insert_new_line()
@@ -633,7 +633,7 @@ class HTMLTextParser(HTMLParser):
         return data
 
     def handle_data(self, data):
-        if len(self.html_tags) and self.html_tags[-1] in (HTML.Tag.PRE, HTML.Tag.CODE):
+        if HTML.Tag.PRE in self.html_tags or HTML.Tag.CODE in self.html_tags:
             pass
         elif not data.strip():
             if self.strip:
