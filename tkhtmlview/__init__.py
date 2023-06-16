@@ -16,7 +16,7 @@ class _ScrolledText(tk.Text):
         self.vbar = tk.Scrollbar(self.frame)
         self.xscroll = tk.Scrollbar(self.frame, orient="horizontal")
 
-        if "xscroll" in kw.keys():
+        if "xscroll" in kw:
             # self.vbar.orient = "vertical"
             # print("vs")
             kw["xscrollcommand"] = self.xscroll.set
@@ -82,7 +82,6 @@ class HTMLScrolledText(_ScrolledText):
     def set_html(self, html, strip=True):
         """
         Set HTML widget text. If strip is enabled (default) it ignores spaces and new lines.
-
         """
         prev_state = self.cget("state")
         self.config(state=tk.NORMAL)

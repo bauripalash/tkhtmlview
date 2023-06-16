@@ -19,7 +19,7 @@ The widgets behaviour is similar to the PyQt5 text widgets (see the [PyQt5 HTML 
 
 ## Requirements
 
-- [Python 3.4 or later](https://www.python.org/downloads/) with tcl/tk support
+- [Python 3.6 or later](https://www.python.org/downloads/) with tcl/tk support
 - [Pillow 5.3.0](https://github.com/python-pillow/Pillow)
 - requests
 
@@ -138,7 +138,7 @@ Where is possibile, I hope to add more HTML support in the next releases.
 | ul       | style              | bullet glyphs only                     |
 | table,tr,th,td | - | basic support|
 
-> Note: All styles are not supported; 
+> Note: All styles are not supported;
 > align with justify is not supported; it falls back to left align
 
 ## License

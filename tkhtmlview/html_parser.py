@@ -199,7 +199,7 @@ def get_existing_font(font_families):
                 font_families,
             )
         )
-    except:
+    except Exception:
         return "TkTextFont"
 
 
@@ -322,7 +322,7 @@ class HTMLTextParser(HTMLParser):
         elif key in Bind.__dict__.values():
             main_key = Bind.KEY
         else:
-            raise ValueError("key %s doesn't exists" % key)
+            raise ValueError(f"key {key} doesn't exists")
 
         return main_key
 
@@ -467,10 +467,10 @@ class HTMLTextParser(HTMLParser):
             # ---------------------------------------------------------------------- [ STYLED_TAGS ]
             self._parse_styles(tag, attrs)
 
-            if tag == HTML.Tag.B or tag == HTML.Tag.STRONG or tag in HTML.HEADING_TAGS:
+            if tag in (HTML.Tag.B, HTML.Tag.STRONG) or tag in HTML.HEADING_TAGS:
                 self._stack_add(tag, Fnt.WEIGHT, "bold")
 
-            elif tag in [HTML.Tag.I, HTML.Tag.EM]:
+            elif tag in (HTML.Tag.I, HTML.Tag.EM):
                 self._stack_add(tag, Fnt.SLANT, "italic")
 
             elif tag == HTML.Tag.A:
@@ -524,7 +524,7 @@ class HTMLTextParser(HTMLParser):
                     self._stack_pop(tag, Fnt.UNDERLINE)
                     self._stack_pop(tag, Fnt.OVERSTRIKE)
 
-            elif tag == HTML.Tag.TH or tag == HTML.Tag.TD:
+            elif tag in (HTML.Tag.TH, HTML.Tag.TD):
                     self._w.insert(tk.INSERT, "\t")
 
         elif tag == HTML.Tag.IMG and attrs[HTML.Attrs.SRC]:
@@ -646,7 +646,7 @@ class HTMLTextParser(HTMLParser):
                 data = data.lstrip()
 
             data = data.replace("\n", " ").replace("\t", " ")
-            data = f"{data} "
+            data = f"{data} " # FIXME: attaching a space in blind is wrong
             data = self._remove_multi_spaces(data)
             if len(self.html_tags) and self.html_tags[-1] in (
                 HTML.Tag.UL,
@@ -678,13 +678,13 @@ class HTMLTextParser(HTMLParser):
             if tag == HTML.Tag.B or tag == HTML.Tag.STRONG or tag in HTML.HEADING_TAGS:
                 self._stack_pop(tag, Fnt.WEIGHT)
 
-            elif tag in [HTML.Tag.I, HTML.Tag.EM]:
+            elif tag in (HTML.Tag.I, HTML.Tag.EM):
                 self._stack_pop(tag, Fnt.SLANT)
 
             elif tag == HTML.Tag.A:
                 self._stack_pop(tag, Bind.LINK)
 
-            elif tag in [HTML.Tag.OL, HTML.Tag.UL]:
+            elif tag in (HTML.Tag.OL, HTML.Tag.UL):
                 if len(self.list_tags):
                     self.list_tags = self.list_tags[:-1]
 
