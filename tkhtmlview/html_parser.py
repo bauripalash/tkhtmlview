@@ -633,7 +633,7 @@ class HTMLTextParser(HTMLParser):
         return data
 
     def handle_data(self, data):
-        if HTML.Tag.PRE in self.html_tags or HTML.Tag.CODE in self.html_tags:
+        if HTML.Tag.PRE in self.html_tags:
             pass
         elif not data.strip():
             if self.strip:
