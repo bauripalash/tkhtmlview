@@ -2,12 +2,12 @@ import os
 
 
 class RenderHTML:
-    def __init__(self, file):
+    def __init__(self, file, encoding = "utf-8"):
         self._file = file
         if not os.path.exists(self._file):
             raise FileNotFoundError(f"No such HTML file: {self._file}")
 
-        with open(file, "r") as f:
+        with open(file, "r", encoding=encoding) as f:
             self._html = f.read()
 
     def __repr__(self):
