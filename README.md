@@ -20,7 +20,7 @@ The widgets behaviour is similar to the PyQt5 text widgets (see the [PyQt5 HTML 
 ## Requirements
 
 - [Python 3.6 or later](https://www.python.org/downloads/) with tcl/tk support
-- [Pillow 5.3.0](https://github.com/python-pillow/Pillow)
+- [Pillow 10.0.0](https://github.com/python-pillow/Pillow)
 - requests
 
 ## Example
