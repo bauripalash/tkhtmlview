@@ -646,7 +646,7 @@ class HTMLTextParser(HTMLParser):
                 data = data.lstrip()
 
             data = data.replace("\n", " ").replace("\t", " ")
-            data = f"{data} " # FIXME: attaching a space in blind is wrong
+            data = f"{data}" # FIXME: attaching a space in blind is wrong - SPACE REMOVED
             data = self._remove_multi_spaces(data)
             if len(self.html_tags) and self.html_tags[-1] in (
                 HTML.Tag.UL,
