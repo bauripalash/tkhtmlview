@@ -115,7 +115,7 @@ class HTML:
         Tag.DIV,
         Tag.P,
         Tag.PRE,
-        Tag.CODE,
+        #Tag.CODE,
         Tag.TABLE,
         Tag.TR,
     )
