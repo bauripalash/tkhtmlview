@@ -68,6 +68,8 @@ ul        <i>style               </i>bullet glyphs only
 div       style               -
       </code>
 
+      <p>Inline <code>code blocks</code> displayed without newlines</p>
+
     """,
 )
 html_label.pack(fill="both", expand=True)
