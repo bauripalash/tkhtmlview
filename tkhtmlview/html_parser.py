@@ -559,7 +559,7 @@ class HTMLTextParser(HTMLParser):
                     height = int(attrs[HTML.Attrs.HEIGHT])
                     resize = True
                 if resize:
-                    image = image.resize((width, height), Image.ANTIALIAS)
+                    image = image.resize((width, height), Image.Resampling.LANCZOS)
                 self.images.append(ImageTk.PhotoImage(image))
                 self._w.image_create(tk.INSERT, image=self.images[-1])
 
