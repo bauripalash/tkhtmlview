@@ -11,6 +11,7 @@ from html.parser import HTMLParser
 from collections import OrderedDict
 import requests
 from io import BytesIO
+import base64
 
 
 # __________________________________________________________________________________________________
@@ -542,6 +543,24 @@ class HTMLTextParser(HTMLParser):
                         self.cached_images[attrs[HTML.Attrs.SRC]] = deepcopy(image)
                     except:
                         pass
+
+            if attrs[HTML.Attrs.SRC].startswith(("data:image/jpeg;base64,")):
+                try:
+                    image = Image.open(
+                        BytesIO(base64.b64decode(attrs[HTML.Attrs.SRC][23:].encode("utf-8")))
+                    )
+                    self.cached_images[attrs[HTML.Attrs.SRC]] = deepcopy(image)
+                except:
+                    pass
+
+            if attrs[HTML.Attrs.SRC].startswith(("data:image/png;base64,", "data:image/gif;base64,")):
+                try:
+                    image = Image.open(
+                        BytesIO(base64.b64decode(attrs[HTML.Attrs.SRC][22:].encode("utf-8")))
+                    )
+                    self.cached_images[attrs[HTML.Attrs.SRC]] = deepcopy(image)
+                except:
+                    pass
 
             if attrs[HTML.Attrs.SRC] in self.cached_images.keys():
                 image = deepcopy(self.cached_images[attrs[HTML.Attrs.SRC]])
