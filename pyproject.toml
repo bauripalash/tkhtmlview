@@ -1,17 +1,29 @@
-[tool.poetry]
+[project]
 name = "tkhtmlview"
-version = "0.3.1"
+version = "0.3.2"
 description = "Display HTML with Tkinter"
-authors = ["Palash Bauri <palashbauri1@gmail.com>"]
-license = "MIT"
+authors = [{ name = "Palash Bauri", email = "palashbauri1@gmail.com" }]
+requires-python = ">=3.10,<4"
 readme = "README.md"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "requests>=2.32.4,<3",
+    "Pillow>=11,<13",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-requests = "^2.32.4"
-Pillow = "^11"
+[tool.uv]
 
+[tool.uv.build-backend]
+module-root = ""
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
